@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> منصة الخلفوني</title>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #5e5de8; /* خلفية بنفسجية */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+
+        .container {
+            background-color: #222; /* خلفية القسم */
+            border-radius: 15px;
+            padding: 40px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .container h1 {
+            font-size: 26px;
+            color: #ffeb3b; /* أصفر */
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            font-size: 18px;
+            color: #ddd; /* لون النص باهت */
+            margin: 10px 0;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ffeb3b;
+            margin: 20px 0;
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+            background-color: #333; /* خلفية الحقل */
+        }
+
+        button {
+            background-color: #ff9800; /* برتقالي */
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #e68900; /* برتقالي أغمق */
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #ffeb3b;
+        }
+
+        .footer a {
+            color: #ffeb3b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>منصة الخلفوني</h1>
+        <p>منصة مال حرام</p>
+        <p>حط الكود هنا لتستحي دادا 👇</p>
+        <input type="text" id="codeInput" placeholder="أدخل الكود هنا">
+        <button onclick="redirectToDecodedUrl()">تشغيل المحاضرة</button>
+        <div class="footer">
+            <p>حسابي : <a href="https://t.me/t_tc1" target="_blank">اضغط هنا</a></p>
+        </div>
+    </div>
+
+    <script>
+        // دالة لفك التشفير من Base64
+        function decodeBase64(encodedStr) {
+            try {
+                return atob(encodedStr); // فك تشفير Base64
+            } catch (error) {
+                alert("الكود غير صحيح أو مشفر بشكل خاطئ.");
+                return null;
+            }
+        }
+
+        // دالة لتوجيه المستخدم إلى الرابط
+        function redirectToDecodedUrl() {
+            const encodedCode = document.getElementById('codeInput').value;
+
+            if (!encodedCode) {
+                alert("الرجاء إدخال الكود أولاً.");
+                return;
+            }
+
+            const decodedUrl = decodeBase64(encodedCode);
+
+            if (decodedUrl) {
+                // تحويل المستخدم مباشرة إلى الرابط المفكوك
+                window.location.href = decodedUrl;
+            }
+        }
+    </script>
+</body>
+</html>
